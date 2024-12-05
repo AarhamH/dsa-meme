@@ -24,15 +24,15 @@ void Stack::push(int item) {
 void Stack::print_stack() {
   std::cout << '[';
   for(int i = 0; i < m_size; i++) {
-    std::cout << m_stack[i];
+    std::cout << m_stack[i] << " ";
   }
   std::cout << ']' << std::endl;
 }
 
-void Stack::print_stack() {
+void Stack::print_full_buffer() {
   std::cout << '[';
-  for(int i = 0; i < m_size; i++) {
-    std::cout << m_stack[i];
+  for(int i = 0; i < m_buffer_length; i++) {
+    std::cout << m_stack[i] << " ";
   }
   std::cout << ']' << std::endl;
 }
