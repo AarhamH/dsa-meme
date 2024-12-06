@@ -19,6 +19,10 @@ int Stack::size() {
   return m_size;
 }
 
+int* Stack::stack() {
+  return m_stack;
+}
+
 void Stack::push(int item) {
   m_stack = (int*)realloc(m_stack, (m_size + 1) * sizeof(int));
   m_stack[m_size] = item;

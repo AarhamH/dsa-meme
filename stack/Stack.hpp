@@ -24,6 +24,10 @@ class Stack {
     /// @return An integer value, representing the size
     int size();
 
+    /// @brief Returns a copy of the stack 
+    /// @return A pointer to the stack data
+    int* stack();
+
     /// @brief  Pushes an item to the front of the stack, if there is overflow, the stack grows
     /// @param item is the item to be pushed into stack
     void push(int item);
