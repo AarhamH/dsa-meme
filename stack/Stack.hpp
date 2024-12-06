@@ -6,7 +6,6 @@ class Stack {
   private:
     int* m_stack;
     int m_size;
-    int m_buffer_length;
   
   public:
     /// @brief Allocates an empty stack 
@@ -32,9 +31,6 @@ class Stack {
 
     /// @brief Prints the stack data structure
     void print_stack();
-
-    /// @brief Prints the full buffer allocated in the heap (for debugging)
-    void print_full_buffer();
     
     ~Stack();
 };
