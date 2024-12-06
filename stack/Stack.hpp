@@ -11,6 +11,11 @@ class Stack {
     /// @brief Allocates an empty stack 
     Stack();
 
+    /// @brief Allocates a preloaded stack 
+    /// @param stack: Preloaded stack to be loaded
+    /// @param len: Length of the preloaded stack
+    Stack(int* stack, int len);
+
     /// @brief Checks if the stack is empty (size is 0)
     /// @return True if empty, false otherwise
     bool is_empty();

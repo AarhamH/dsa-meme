@@ -3,6 +3,13 @@
 #include <iostream>
 
 Stack::Stack() : m_stack(nullptr), m_size(0) {};
+Stack::Stack(int stack[], int len) : m_stack(nullptr), m_size(0) {
+  m_stack = new int[len];
+  for(int i=0; i<len; i++) {
+    m_stack[i] = stack[i];
+  }
+  m_size = len;
+};
 
 bool Stack::is_empty() {
   return m_size == 0;
