@@ -1,7 +1,12 @@
 #include <stdlib.h>
 #include "BinaryTree.hpp"
+#include <iostream>
 
 BinaryTree::BinaryTree() : m_root(nullptr) {};
+
+BNode* BinaryTree::get_root() {
+  return m_root;
+}
 
 BNode* BinaryTree::create_node(int val) {
   BNode* created_node = (BNode*)malloc(sizeof(BNode));
@@ -12,18 +17,31 @@ BNode* BinaryTree::create_node(int val) {
   return created_node; 
 }
 
-BNode* BinaryTree::insert(BNode* node, int val) {
+BNode* BinaryTree::insert_util(BNode* node, int val) {
   if(node == NULL) {
-    create_node(val);
+    return create_node(val);
   }
 
   if(val <= node->value) {
-    insert(node->left, val);
+    node->left = insert_util(node->left, val);
   }
  
   if(val > node->value) {
-    insert(node->left, val);
+    node->right = insert_util(node->right, val);
   }
 
   return node;
+}
+
+void BinaryTree::insert(int val) {
+  m_root = insert_util(m_root, val);
+}
+
+void BinaryTree::inorder_traversal(BNode* node) {
+  if(node == NULL) {
+    return;
+  }
+  inorder_traversal(node->left);
+  std::cout << node->value << " ";
+  inorder_traversal(node->right);
 }
