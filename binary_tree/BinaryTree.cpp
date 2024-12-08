@@ -8,6 +8,18 @@ BNode* BinaryTree::get_root() {
   return m_root;
 }
 
+int BinaryTree::height(BNode* node) {
+  if(node == NULL) {
+    return -1;
+  }
+
+  int left_tree = height(node->left);
+  int right_tree = height(node->right);
+
+  return std::max(left_tree, right_tree) + 1;
+  
+}
+
 BNode* BinaryTree::create_node(int val) {
   BNode* created_node = (BNode*)malloc(sizeof(BNode));
   created_node->value = val;

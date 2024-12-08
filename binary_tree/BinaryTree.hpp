@@ -15,6 +15,7 @@ class BinaryTree {
     BinaryTree();
 
     BNode* get_root();
+    int height(BNode* node);
     BNode* create_node(int val);
     void insert(int val);
     void inorder_traversal(BNode* node);
