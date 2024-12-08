@@ -45,3 +45,21 @@ void BinaryTree::inorder_traversal(BNode* node) {
   std::cout << node->value << " ";
   inorder_traversal(node->right);
 }
+
+void BinaryTree::preorder_traversal(BNode* node) {
+  if(node == NULL) {
+    return;
+  }
+  std::cout << node->value << " ";
+  preorder_traversal(node->left);
+  preorder_traversal(node->right);
+}
+
+void BinaryTree::postorder_traversal(BNode* node) {
+  if(node == NULL) {
+    return;
+  }
+  postorder_traversal(node->left);
+  postorder_traversal(node->right);
+  std::cout << node->value << " ";
+}

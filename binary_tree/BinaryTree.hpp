@@ -17,4 +17,6 @@ class BinaryTree {
     BNode* create_node(int val);
     void insert(int val);
     void inorder_traversal(BNode* node);
+    void preorder_traversal(BNode* node);
+    void postorder_traversal(BNode* node);
 };
