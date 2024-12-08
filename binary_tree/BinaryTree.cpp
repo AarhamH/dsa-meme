@@ -17,7 +17,6 @@ int BinaryTree::height(BNode* node) {
   int right_tree = height(node->right);
 
   return std::max(left_tree, right_tree) + 1;
-  
 }
 
 BNode* BinaryTree::create_node(int val) {
