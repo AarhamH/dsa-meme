@@ -1,5 +1,5 @@
-#ifndef VECTOR_H
-#define VECTOR_H
+#ifndef BST_H
+#define BST_H
 #include <vector>
 
 struct BNode {
