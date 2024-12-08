@@ -1,3 +1,6 @@
+#ifndef VECTOR_H
+#define VECTOR_H
+#include <vector>
 
 struct BNode {
   int value;
@@ -44,19 +47,23 @@ public:
 
      /// @brief Perform an in-order traversal of the binary tree.
      /// @param node Pointer to the current node in the traversal.
-    void inorder_traversal(BNode* node);
+     /// @return Vector of inorder traversal
+    std::vector<int> inorder_traversal(BNode* node);
 
      /// @brief Perform a pre-order traversal of the binary tree.
      /// @param node Pointer to the current node in the traversal.
-    void preorder_traversal(BNode* node);
+     /// @return Vector of preorder traversal
+    std::vector<int> preorder_traversal(BNode* node);
 
      /// @brief Perform a post-order traversal of the binary tree.
      /// @param node Pointer to the current node in the traversal.
-    void postorder_traversal(BNode* node);
+     /// @return Vector of postorder traversal
+    std::vector<int> postorder_traversal(BNode* node);
 
      /// @brief Perform a level-order traversal of the binary tree.
      /// @param node Pointer to the current node in the traversal.
-    void levelorder_traversal(BNode* node);
+     /// @return Vector of levelorder traversal
+    std::vector<int> levelorder_traversal(BNode* node);
 
      /// @brief Remove a node with a given value from the tree.
      /// @param node Pointer to the current node being checked.
@@ -64,3 +71,5 @@ public:
      /// @return BNode* Pointer to the updated tree after the node is removed.
     BNode* remove(BNode* node, int val);
 };
+
+#endif

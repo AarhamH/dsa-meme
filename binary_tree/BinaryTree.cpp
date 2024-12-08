@@ -2,6 +2,7 @@
 #include "BinaryTree.hpp"
 #include <iostream>
 #include <queue>
+#include <vector>
 
 BinaryTree::BinaryTree() : m_root(nullptr) {};
 
@@ -49,53 +50,82 @@ void BinaryTree::insert(int val) {
   m_root = insert_util(m_root, val);
 }
 
-void BinaryTree::inorder_traversal(BNode* node) {
-  if(node == NULL) {
-    return;
+std::vector<int> BinaryTree::inorder_traversal(BNode* node) {
+  std::vector<int> v;
+  if (node == nullptr) {
+      return v;
   }
-  inorder_traversal(node->left);
-  std::cout << node->value << " ";
-  inorder_traversal(node->right);
+
+  std::vector<int> left_values = inorder_traversal(node->left);
+  
+  v.insert(v.end(), left_values.begin(), left_values.end());
+  v.push_back(node->value);
+  
+  std::vector<int> right_values = inorder_traversal(node->right);
+  
+  v.insert(v.end(), right_values.begin(), right_values.end());
+
+  return v;
 }
 
-void BinaryTree::preorder_traversal(BNode* node) {
-  if(node == NULL) {
-    return;
+std::vector<int> BinaryTree::preorder_traversal(BNode* node) {
+  std::vector<int> v;
+  if (node == nullptr) {
+      return v;
   }
-  std::cout << node->value << " ";
-  preorder_traversal(node->left);
-  preorder_traversal(node->right);
+
+  v.push_back(node->value);
+
+  std::vector<int> left_values = preorder_traversal(node->left);
+  std::vector<int> right_values = preorder_traversal(node->right);
+  
+  v.insert(v.end(), left_values.begin(), left_values.end());
+  v.insert(v.end(), right_values.begin(), right_values.end());
+
+  return v;
 }
 
-void BinaryTree::postorder_traversal(BNode* node) {
+std::vector<int> BinaryTree::postorder_traversal(BNode* node) {
+  std::vector<int> v;
   if(node == NULL) {
-    return;
+    return v;
   }
-  postorder_traversal(node->left);
-  postorder_traversal(node->right);
-  std::cout << node->value << " ";
+  std::vector<int> v_left = postorder_traversal(node->left);
+  std::vector<int> v_right = postorder_traversal(node->right);
+
+  v.insert(v.end(), v_left.begin(), v_left.end());
+  v.insert(v.end(), v_right.begin(),v_right.end());
+  v.push_back(node->value);
+
+  return v;
 }
 
-void BinaryTree::levelorder_traversal(BNode* node) {
-  if(node == NULL) {
-    return;
+std::vector<int> BinaryTree::levelorder_traversal(BNode* node) {
+  std::vector<int> v;
+  if (node == nullptr) {
+      return v;
   }
 
   std::queue<BNode*> q;
   q.push(node);
 
-  while(!q.empty()) {
+  while (!q.empty()) {
     BNode* visited_node = q.front();
-    std::cout << visited_node->value << " ";
-    if(visited_node->left != NULL) {
-      q.push(visited_node->left);
-    }
-    if(visited_node->right != NULL) {
-      q.push(visited_node->right);
-    }
+    v.push_back(visited_node->value);
     q.pop();
+
+    if (visited_node->left != nullptr) {
+        q.push(visited_node->left);
+    }
+
+    if (visited_node->right != nullptr) {
+        q.push(visited_node->right);
+    }
   }
+
+  return v;
 }
+
 
 BNode* BinaryTree::get_min_node(BNode* node) {
   if(node == NULL) {
