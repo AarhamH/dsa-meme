@@ -70,6 +70,10 @@ public:
      /// @param val The value of the node to be removed.
      /// @return BNode* Pointer to the updated tree after the node is removed.
     BNode* remove(BNode* node, int val);
+
+    void deleteTree(BNode* node);
+
+    ~BinaryTree();
 };
 
 #endif

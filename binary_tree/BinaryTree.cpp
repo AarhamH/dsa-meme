@@ -174,3 +174,16 @@ BNode* BinaryTree::remove(BNode* node, int value) {
 
   return node;
 }
+
+void BinaryTree::deleteTree(BNode* node) {
+  if(node != NULL) {
+    deleteTree(node->left);
+    deleteTree(node->right);
+
+    delete(node);
+  }
+}
+
+BinaryTree::~BinaryTree() {
+  deleteTree(m_root);
+}
