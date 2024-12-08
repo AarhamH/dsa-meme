@@ -9,6 +9,7 @@ class BinaryTree {
   private:
     BNode* m_root;
     BNode* insert_util(BNode* node, int val);
+    BNode* get_min_node(BNode* node);
 
   public:
     BinaryTree();
@@ -19,4 +20,5 @@ class BinaryTree {
     void inorder_traversal(BNode* node);
     void preorder_traversal(BNode* node);
     void postorder_traversal(BNode* node);
+    BNode* remove(BNode* node, int val);
 };

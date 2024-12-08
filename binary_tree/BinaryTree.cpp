@@ -63,3 +63,51 @@ void BinaryTree::postorder_traversal(BNode* node) {
   postorder_traversal(node->right);
   std::cout << node->value << " ";
 }
+
+BNode* BinaryTree::get_min_node(BNode* node) {
+  if(node == NULL) {
+    return NULL;
+  }
+
+  while(node->left != NULL) {
+    node = get_min_node(node->left);
+  }
+
+  return node;
+}
+
+BNode* BinaryTree::remove(BNode* node, int value) {
+  if (node == NULL) {
+    return NULL;
+  }
+
+  if (node->value == value) {
+    if (node->left == NULL && node->right == NULL) {
+          delete node;
+          return NULL;
+      }
+      else if (node->right == NULL) {
+          BNode* return_node = node->left;
+          delete node;
+          return return_node;
+      }
+      else if (node->left == NULL) {
+          BNode* return_node = node->right;
+          delete node;
+          return return_node;
+      }
+      else {
+          BNode* minNode = get_min_node(node->right);
+          node->value = minNode->value;
+          node->right = remove(node->right, minNode->value);
+      }
+  }
+  else if (value < node->value) {
+      node->left = remove(node->left, value);
+  }
+  else {
+      node->right = remove(node->right, value);
+  }
+
+  return node;
+}
