@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "BinaryTree.hpp"
 #include <iostream>
+#include <queue>
 
 BinaryTree::BinaryTree() : m_root(nullptr) {};
 
@@ -73,6 +74,27 @@ void BinaryTree::postorder_traversal(BNode* node) {
   postorder_traversal(node->left);
   postorder_traversal(node->right);
   std::cout << node->value << " ";
+}
+
+void BinaryTree::levelorder_traversal(BNode* node) {
+  if(node == NULL) {
+    return;
+  }
+
+  std::queue<BNode*> q;
+  q.push(node);
+
+  while(!q.empty()) {
+    BNode* visited_node = q.front();
+    std::cout << visited_node->value << " ";
+    if(visited_node->left != NULL) {
+      q.push(visited_node->left);
+    }
+    if(visited_node->right != NULL) {
+      q.push(visited_node->right);
+    }
+    q.pop();
+  }
 }
 
 BNode* BinaryTree::get_min_node(BNode* node) {

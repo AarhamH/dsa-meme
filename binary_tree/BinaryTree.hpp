@@ -54,6 +54,10 @@ public:
      /// @param node Pointer to the current node in the traversal.
     void postorder_traversal(BNode* node);
 
+     /// @brief Perform a level-order traversal of the binary tree.
+     /// @param node Pointer to the current node in the traversal.
+    void levelorder_traversal(BNode* node);
+
      /// @brief Remove a node with a given value from the tree.
      /// @param node Pointer to the current node being checked.
      /// @param val The value of the node to be removed.
