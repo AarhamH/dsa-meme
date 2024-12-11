@@ -16,8 +16,20 @@ void Trie::insert(std::string s) {
   }
 }
 
-bool Trie::search(string key, bool prefix=false) {
+bool Trie::search(std::string s, bool prefix) {
   TNode* p = root;
-}
 
+  for(auto &a: s) {
+    int i = a - 'a';
+    if(!p->children[i]) {
+      return false;
+    }
+    p = p->children[i];
+  }
+  if(!prefix) {
+    return p->is_word;
+  }
+  
+  return true;
+}
 
