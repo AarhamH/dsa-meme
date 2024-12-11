@@ -5,6 +5,10 @@ Trie::Trie() {
   root = new TNode();
 }
 
+TNode* Trie::get_root() {
+  return root;
+}
+
 void Trie::insert(std::string s) {
   TNode* p = root;
   for(auto &a: s) {
