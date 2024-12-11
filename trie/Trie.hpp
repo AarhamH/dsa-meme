@@ -7,6 +7,10 @@
 struct TNode {
   TNode* children[MAXIMUM_CHAR];
   bool is_word;
+  TNode() {
+    is_word= false;
+    for (auto &a : children) a = nullptr;
+  }
 };
 
 class Trie {
@@ -14,7 +18,7 @@ private:
   TNode* root;
 public:
   Trie();
-
+  
   void insert(std::string s);
   void search(std::string s, bool prefix=false);
   void starts_with(std::string prefix);

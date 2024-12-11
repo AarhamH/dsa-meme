@@ -16,3 +16,8 @@ void Trie::insert(std::string s) {
   }
 }
 
+bool Trie::search(string key, bool prefix=false) {
+  TNode* p = root;
+}
+
+
