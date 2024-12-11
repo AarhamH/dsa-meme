@@ -33,3 +33,7 @@ bool Trie::search(std::string s, bool prefix) {
   return true;
 }
 
+bool Trie::starts_with(std::string prefix) {
+  return search(prefix, true);
+}
+

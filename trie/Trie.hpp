@@ -21,7 +21,7 @@ public:
   
   void insert(std::string s);
   bool search(std::string s, bool prefix=false);
-  void starts_with(std::string prefix);
+  bool starts_with(std::string prefix);
 
   ~Trie();
 };
