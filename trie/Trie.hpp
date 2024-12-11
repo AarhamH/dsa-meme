@@ -20,7 +20,7 @@ public:
   Trie();
   
   void insert(std::string s);
-  void search(std::string s, bool prefix=false);
+  bool search(std::string s, bool prefix=false);
   void starts_with(std::string prefix);
 
   ~Trie();
