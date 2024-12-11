@@ -127,6 +127,4 @@ void Test_BST() {
   Test_BST_postorder();
   Test_BST_levelorder();
   Test_BST_delete_two_children();
-
-  
 }
