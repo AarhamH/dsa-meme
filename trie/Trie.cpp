@@ -37,3 +37,4 @@ bool Trie::starts_with(std::string prefix) {
   return search(prefix, true);
 }
 
+Trie::~Trie(){}
