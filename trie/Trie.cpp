@@ -1,4 +1,5 @@
 #include "Trie.hpp"
+#include <iostream>
 
 Trie::Trie() {
   root = new TNode();
