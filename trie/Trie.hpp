@@ -22,6 +22,7 @@ public:
   void insert(std::string s);
   bool search(std::string s, bool prefix=false);
   bool starts_with(std::string prefix);
+  void print_trie_structure();
 
   ~Trie();
 };

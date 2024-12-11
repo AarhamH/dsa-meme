@@ -37,4 +37,20 @@ bool Trie::starts_with(std::string prefix) {
   return search(prefix, true);
 }
 
+void print_tnode(TNode* node, const std::string& prefix = "", int level = 0) {
+    std::cout << std::string(level * 2, ' ')
+              << "Node (Prefix: " << prefix << ", is_word: " << (node->is_word ? "True" : "False") << ")\n";
+    
+    for (int i = 0; i < MAXIMUM_CHAR; ++i) {
+        if (node->children[i]) {
+            // Print child node recursively
+            print_tnode(node->children[i], prefix + char(i + 'a'), level + 1);
+        }
+    }
+}
+
+void Trie::print_trie_structure() {
+  print_tnode(root);
+}
+
 Trie::~Trie(){}
