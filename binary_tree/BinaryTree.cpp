@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "BinaryTree.hpp"
-#include <iostream>
 #include <queue>
 #include <vector>
 
@@ -149,17 +148,17 @@ BNode* BinaryTree::remove(BNode* node, int value) {
           delete node;
           return NULL;
       }
-      else if (node->right == NULL) {
+    else if (node->right == NULL) {
           BNode* return_node = node->left;
           delete node;
           return return_node;
       }
-      else if (node->left == NULL) {
+    else if (node->left == NULL) {
           BNode* return_node = node->right;
           delete node;
           return return_node;
       }
-      else {
+    else {
           BNode* minNode = get_min_node(node->right);
           node->value = minNode->value;
           node->right = remove(node->right, minNode->value);
