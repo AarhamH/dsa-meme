@@ -59,7 +59,7 @@ void Test_stack_pop() {
     s.pop();
   }
   assert(s.size() == 0); 
-  assert(s.size() == og_stack_size); 
+  assert(s.size() != og_stack_size); 
 
   std::cout << "Test_stack_pop: PASSED" << std::endl;
 }
@@ -78,7 +78,7 @@ void Test_stack_clear() {
   s.clear(); 
   
   assert(s.size() == 0); 
-  assert(s.size() == og_stack_size); 
+  assert(s.size() != og_stack_size); 
 
   std::cout << "Test_stack_clear: PASSED" << std::endl;
 }
